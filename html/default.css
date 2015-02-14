@@ -1,16 +1,28 @@
 @charset "utf-8";
 /* html reset */
 header,footer, section, article, nav, aside, main, figure, figcaption{ display: block; }
-.container{ max-width: 960px; background: silver; margin:0 auto;}
+/*.container{ max-width: 960px; background: silver; margin:0 auto;}*/
+
 /* All */
+body{ background: -webkit-linear-gradient(#ccc,#fff);/* 사파리,크롬 */ }
+body{ background: -moz-linear-gradient(#ccc,#fff);/* 파이어폭스 */ }
+body{ background: -ms-linear-gradient(#ccc,#fff);/* window ie */ }
+body{ background: -o-linear-gradient(#ccc,#fff);/* opera에서만 해석합니다.*/ }
+body{ background: linear-gradient(#ccc,#fff);/* 최신 버전으로 웹표준에서 지원한다. 선형그라디언트다.*/ }
 
 /* mobile */
 
+
 /* tablet & desktop */
-@media (min-width:768px){
+@media (min-width:768px){  /* 뷰포트가 768px과 같거나, 크면 배경을 red로 바꿔라 */
 	body{ background: red;}
 }
 
 /* tablet */
-
+@media (min-width:768px) and (max-width:1024px){
+	/*body{ background: green;}*/
+}
 /* desktop */
+@media (min-width: 1025px){
+	body{background: blue;}
+}
