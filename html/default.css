@@ -50,7 +50,7 @@ main,
 main{
 	background: #fff;
 	box-shadow: 0 0 4px #999; /* ie7~8 */
-	box-shadow: 0 0 4px rgba(0,0,0,0.3);/* ie9이 */
+	box-shadow: 0 0 4px rgba(0,0,0,.3);/* ie9이 */
 	border-radius: 8px;
 	min-height: 300px;
 }
@@ -98,18 +98,21 @@ main{
 	background: #555;
 }
 .aside{
-	border: 1px solid #ddd;
-	border-radius: 4px;
+	border:1px solid #ddd;
+	border-radius:4px;
 	padding: 0 10px;
 }
 .aside h2{
-	font-size: 14px;
+	font-size:14px;
 	margin: 0;
-	border-bottom: 1px solid #ddd;
+	border-bottom:1px solid #ddd;
 	line-height: 32px;
 
 }
-.aside{
+.aside ul{
+	padding: 10px 0;
+}
+.aside a{
 	display: block;
 	line-height: 32px;
 }
@@ -117,14 +120,157 @@ main{
 .footer {
 	border-top: 1px dotted #959595;
 }
-.footer p{
+.footer>p{
 	text-align: center;
 	color: #666;
 }
 
+/* Mobile */
+.container{
+	margin: 0 10px;
+}
+.skip{
+	display: none;
+}
+.gnb>h2{
+	height: 1px;
+	position: absolute;
+	overflow: hidden;
+	margin: 0;
+}
+.gnb>button{
+	border:0;
+	background: #666;
+	width: 40px;
+	height: 36px;
+	padding: 36px 0 0 0;
+	overflow: hidden;
+	border-radius: 3px;
+	position: absolute;
+	cursor: pointer;
+	top: 15px;
+	right: 10px;
+}
+.gnb>button:before{
+	content:"";
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	width: 32px;
+	height: 4px;
+	border-top: 12px double #fff;
+	border-bottom: 12px double #fff;
+}
+.gnb>ul{
+	background: #666;
+	border-radius: 4px;
+	overflow: hidden;
+	display: none;
+}
+.gnb ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.gnb a{
+	display: block;
+	background: #666;
+	color: #fff;
+	line-height: 32px;
+	text-decoration: none;
+	padding: 0 10px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+}
+.gnb>ul>li>a{
+	background: #444;
+}
+.gnb li li{
+	border-top: 1px dotted #444;
+}
+.gnb li li:first-child{
+	border:0;
+}
+.search{
+	margin: 15px 0;
+	padding: 0 60px 0 0;
+	position: relative;
+}
+.search>[type="search"]{
+	display: block;
+	width: 100%;
+}
+.search>[type="submit"]{
+	width: 50px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
 /* tablet & desktop */
 @media (min-width:768px){  /* 뷰포트가 768px과 같거나, 크면 배경을 red로 바꿔라 */
 	/*body{ background: red;}*/
+
+.gnb>button{
+	display: none;
+}
+.search{
+	position: absolute;
+	top: 20px;
+	right: 10px;
+	margin: 0;
+	width: 200px;
+}
+.gnb{
+	margin-bottom: 15px;
+}
+.gnb>ul{
+	display: block !important; /* css우선순위규칙을 무시하고 무조건 적용시키는 키워드이다. 타블릿 이상 크기에서 메뉴를 무조건 보이게 하기 위해*/
+	height: 40px;
+	border-bottom: 40px solid #fff;
+	padding: 0 0 0 25px;
+	overflow: visible;
+	background: -webkit-linear-gradient(#555 0%, #333 50%, #000 50%, #222 100%);
+	background: -moz-linear-gradient(#555 0%, #333 50%, #000 50%, #222 100%);
+	background: -ms-linear-gradient(#555 0%, #333 50%, #000 50%, #222 100%);
+	background: -o-linear-gradient(#555 0%, #333 50%, #000 50%, #222 100%);
+	background: linear-gradient(to bottom, #555 0%, #333 50%, #000 50%, #222 100%);
+}
+.gnb ul ul{
+	display: none;
+}
+.gnb>ul>li{
+	float: left;
+}
+.gnb a{
+	background: none !important;
+}
+.gnb>ul>li>a{
+	line-height: 40px;
+	padding: 0 25px;
+}
+.gnb>ul>.active>a{
+	background: #fff !important;
+	color: #000;
+	font-weight: 700;
+	margin-top: 4px;
+	line-height: 36px;
+	border-radius: 4px 4px 0 0;
+}
+.gnb>ul>li.active>ul{
+	display: block;
+}
+.gnb ul ul{
+	position: absolute;/* 우리가 원하는 넓이만큼을 쓰기 위해서,*/
+}
+.gnb li li{
+	border: 0;
+	display: inline-block;
+}
+.gnb li li>a{
+	color: #666;
+	line-height: 40px;
 }
 
 /* tablet */

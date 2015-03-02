@@ -6,7 +6,8 @@
 	<!-- <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=2,user-scalable=no"> -->
 	<title>HTML5</title>
 	<link rel="stylesheet" href="default.css">
-	<!--[if lt IE 9]>
+	<!--  아래구문은 IE만 인지하는 구문이다. ie버전8이 이해못하기 때문에 알아먹게 하기 위한 것들을 넣어준다. 주석으로 해놓으면 ie8이상에서는 조건부 주석을 보고 해석을 한다.-->
+	<!--[if lt IE 9]> 
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
@@ -14,12 +15,14 @@
 <body>
 	<div class="container">
 		<a href="#main">메뉴건너뛰기</a>
+		<a href="#main" class="skip">메뉴건너뛰기</a>
 		<header class="header">
 			<h1>HTML5</h1>
 			<nav class="gnb">
 				<h2>메인 메뉴</h2>
+				<button type="button">메뉴 열기</button>
 				<ul>
-					<li>
+					<li class="active">
 						<a href="#">메뉴 1</a>
 						<ul>
 							<li><a href="#">메뉴 1-1</a></li>
