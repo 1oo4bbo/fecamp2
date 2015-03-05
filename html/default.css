@@ -101,6 +101,7 @@ main{
 	border:1px solid #ddd;
 	border-radius:4px;
 	padding: 0 10px;
+	background: #fff;	
 }
 .aside h2{
 	font-size:14px;
@@ -166,6 +167,7 @@ main{
 	border-radius: 4px;
 	overflow: hidden;
 	display: none;
+	position: relative;
 }
 .gnb ul{
 	margin: 0;
@@ -212,72 +214,129 @@ main{
 @media (min-width:768px){  /* 뷰포트가 768px과 같거나, 크면 배경을 red로 바꿔라 */
 	/*body{ background: red;}*/
 
-.gnb>button{
-	display: none;
-}
-.search{
-	position: absolute;
-	top: 20px;
-	right: 10px;
-	margin: 0;
-	width: 200px;
-}
-.gnb{
-	margin-bottom: 15px;
-}
-.gnb>ul{
-	display: block !important; /* css우선순위규칙을 무시하고 무조건 적용시키는 키워드이다. 타블릿 이상 크기에서 메뉴를 무조건 보이게 하기 위해*/
-	height: 40px;
-	border-bottom: 40px solid #fff;
-	padding: 0 0 0 25px;
-	overflow: visible;
-	background: -webkit-linear-gradient(#555 0%, #333 50%, #000 50%, #222 100%);
-	background: -moz-linear-gradient(#555 0%, #333 50%, #000 50%, #222 100%);
-	background: -ms-linear-gradient(#555 0%, #333 50%, #000 50%, #222 100%);
-	background: -o-linear-gradient(#555 0%, #333 50%, #000 50%, #222 100%);
-	background: linear-gradient(to bottom, #555 0%, #333 50%, #000 50%, #222 100%);
-}
-.gnb ul ul{
-	display: none;
-}
-.gnb>ul>li{
-	float: left;
-}
-.gnb a{
-	background: none !important;
-}
-.gnb>ul>li>a{
-	line-height: 40px;
-	padding: 0 25px;
-}
-.gnb>ul>.active>a{
-	background: #fff !important;
-	color: #000;
-	font-weight: 700;
-	margin-top: 4px;
-	line-height: 36px;
-	border-radius: 4px 4px 0 0;
-}
-.gnb>ul>li.active>ul{
-	display: block;
-}
-.gnb ul ul{
-	position: absolute;/* 우리가 원하는 넓이만큼을 쓰기 위해서,*/
-}
-.gnb li li{
-	border: 0;
-	display: inline-block;
-}
-.gnb li li>a{
-	color: #666;
-	line-height: 40px;
+	.gnb>button{
+		display: none;
+	}
+	.search{
+		position: absolute;
+		top: 20px;
+		right: 10px;
+		margin: 0;
+		width: 200px;
+	}
+	.gnb{
+		margin-bottom: 15px;
+	}
+	.gnb>ul{
+		display: block !important; /* css우선순위규칙을 무시하고 무조건 적용시키는 키워드이다. 타블릿 이상 크기에서 메뉴를 무조건 보이게 하기 위해*/
+		height: 40px;
+		border-bottom: 40px solid #fff;
+		padding: 0 0 0 25px;
+		overflow: visible;
+		background: -webkit-linear-gradient(#555 0%, #333 50%, #000 50%, #222 100%);
+		background: -moz-linear-gradient(#555 0%, #333 50%, #000 50%, #222 100%);
+		background: -ms-linear-gradient(#555 0%, #333 50%, #000 50%, #222 100%);
+		background: -o-linear-gradient(#555 0%, #333 50%, #000 50%, #222 100%);
+		background: linear-gradient(to bottom, #555 0%, #333 50%, #000 50%, #222 100%);
+	}
+	.gnb ul ul{
+		display: none;
+	}
+	.gnb>ul>li{
+		float: left;
+	}
+	.gnb a{
+		background: none !important;
+	}
+	.gnb>ul>li>a{
+		line-height: 40px;
+		padding: 0 25px;
+	}
+	.gnb>ul>.active>a{
+		background: #fff !important;
+		color: #000;
+		font-weight: 700;
+		margin-top: 4px;
+		line-height: 36px;
+		border-radius: 4px 4px 0 0;
+	}
+	.gnb>ul>li.active>ul{
+		display: block;
+		left: 20px;
+	}
+	.gnb ul ul{
+		position: absolute;/* 우리가 원하는 넓이만큼을 쓰기 위해서,*/
+	}
+
+	.gnb li li{
+		border: 0;
+		display: inline-block;
+	}
+	.gnb li li>a{
+		color: #666;
+		line-height: 40px;
+	}
+	.body:after{   /* 바디가 종료되기 직전에 마지막 자식을 선택하는데, 가장요소를 만들어 선택한다*/
+			content:"";
+			display: block;
+			clear: both;
+	}
 }
 
 /* tablet */
 @media (min-width:768px) and (max-width:1024px){
 	/*body{ background: green;}*/
+	.body{
+		padding-right: 200px;
+	}
+	main{
+		float: left;
+		width: 100%;
+		margin-right: -180px;
+	}
+	.lnb,
+	.aside{
+		float: right;
+		box-sizing:border-box;
+		width: 180px;
+		position: relative;
+		left:200px;
+	}
 }
+
 /* desktop */
 @media (min-width: 1025px){
 	/*body{background: blue;}*/
+	.body{
+		padding: 0 200px 0 220px;
+	}
+	main{
+		float: left;
+		width: 100%;
+		margin-right: -100%;
+	}
+	.lnb, .aside{
+		position: relative;
+	}
+
+	.lnb{
+		float: left;
+		width: 200px;
+		margin-left: -220px;
+	}
+	.aside{
+		float: right;
+		width: 158px;
+		margin-right:-200px;
+	}
+	.container{
+		max-width: 1280px;
+		margin: 0 auto;
+		padding: 0 10px;
+		position: relative;
+	}
+	.search{
+		top: 0;
+		right: 10px;
+	}
 }
