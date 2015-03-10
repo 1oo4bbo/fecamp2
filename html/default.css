@@ -6,9 +6,36 @@ header,footer, section, article, nav, aside, main, figure, figcaption{ display: 
 /* 백그라운드 100% */
 html,body{min-height:  100%;}
 body{margin: 0;}
-body, table, button, input, textarea, select{font-size: 14px;} /* 폼과 테이블 요소들은 해당 속성을 body안에서 상속받지 못해서 별도로 지정해준다.*/
+body, table, button, input, textarea, select{
+	font-size: 14px;
+} /* 폼과 테이블 요소들은 해당 속성을 body안에서 상속받지 못해서 별도로 지정해준다.*/
+img,video {
+	max-width: 100%;
+	height: auto;
+}
+.vframe {
+	max-width: 100%;
+	padding-top: 56.25%;
+	position: relative;
+}
+.vframe>iframe {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+}
 
 /* All */
+@font-face {
+  font-family: 'NG';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.eot);
+  src: url(https://fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'),
+       url(https://fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.woff2) format('woff2'),
+       url(https://fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.woff) format('woff'),
+       url(https://fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.ttf) format('truetype');
+}
 body{ 
 	background: -webkit-linear-gradient(#ccc,#fff);/* 사파리,크롬 */ 
 	background: -moz-linear-gradient(#ccc,#fff);/* 파이어폭스 */
@@ -53,6 +80,9 @@ main{
 	box-shadow: 0 0 4px rgba(0,0,0,.3);/* ie9이 */
 	border-radius: 8px;
 	min-height: 300px;
+}
+main>article{
+	padding: 15px;
 }
 .lnb ul,
 .aside ul{
@@ -124,6 +154,23 @@ main{
 .footer>p{
 	text-align: center;
 	color: #666;
+}
+.table-rwd {
+	overflow: auto;
+}
+.table {
+	border-collapse: collapse;
+}
+.table th,
+.table td {
+	border-bottom: 1px solid #ccc;
+	padding: 5px;
+}
+.table>thead th {
+	border-top: 3px double #ccc;
+}
+.table td {
+	vertical-align: top;
 }
 
 /* Mobile */
@@ -214,6 +261,9 @@ main{
 @media (min-width:768px){  /* 뷰포트가 768px과 같거나, 크면 배경을 red로 바꿔라 */
 	/*body{ background: red;}*/
 
+	body, table, button, input, textarea, select {
+		font-family: NG;
+	}
 	.gnb>button{
 		display: none;
 	}
